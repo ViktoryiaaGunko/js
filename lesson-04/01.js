@@ -19,5 +19,6 @@ function includesElement(array, element) {
             return isElementContain
         }
     }
+    return false
 }
-console.log(includesElement([1, 2, 3], 3))
+console.log(includesElement([1, 2, 3], 4))
