@@ -19,7 +19,5 @@ function includesElement(array, element) {
             return isElementContain
         }
     }
-
 }
-
 console.log(includesElement([1, 2, 3], 3))
