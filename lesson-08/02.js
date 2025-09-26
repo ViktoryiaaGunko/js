@@ -6,18 +6,21 @@
  */
 
 function isNumeric(str) {
-    let result = true
+    let result=true
+    if (str === "") result= false;
+
+    let hasDot = false;
     for (let i = 0; i < str.length; i++) {
-        if (str[i]!=="." && (isNaN(str[i]) || str[i]===' ' )){
-            result = false
-            break
+        if (str[i] === ".") {
+            if (hasDot) {
+                result= false
+            }
+            hasDot = true;
+        } else if (str[i] < '0' || str[i] > '9') {
+            result= false
         }
     }
     return result
 }
-
  console.log(isNumeric("123")) // Ожидаемый результат: true
  console.log(isNumeric("12.3")) // Ожидаемый результат: true
- console.log(isNumeric("123abc")) // Ожидаемый результат: false
- console.log(isNumeric("abc")) // Ожидаемый результат: false
- console.log(isNumeric(" ")) // Ожидаемый результат: false
