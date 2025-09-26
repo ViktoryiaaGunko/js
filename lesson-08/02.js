@@ -11,7 +11,10 @@ function isNumeric(str) {
 
     let hasDot = false;
     for (let i = 0; i < str.length; i++) {
-        if (str[i] === ".") {
+        if(str[0]==="-" || str[i]==="e"){
+            continue
+        }
+        if (str[i] === "." ) {
             if (hasDot) {
                 result= false
             }
@@ -22,5 +25,5 @@ function isNumeric(str) {
     }
     return result
 }
- console.log(isNumeric("123")) // Ожидаемый результат: true
- console.log(isNumeric("12.3")) // Ожидаемый результат: true
+ console.log(isNumeric("-123")) // Ожидаемый результат: true
+ console.log(isNumeric("12.3e")) // Ожидаемый результат: true
