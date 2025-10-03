@@ -10,10 +10,10 @@ startButton.addEventListener('click', () => {
   let counter = 3
   if(!isTimerStarted){
     isTimerStarted=true
-    countdownDisplay.textContent='counter'
+    countdownDisplay.textContent=counter
     timerId=setInterval(()=>{
       counter--;
-      countdownDisplay.textContent='counter';
+      countdownDisplay.textContent=counter;
       if(counter===0){
         clearInterval(timerId); // Останавливаем таймер
         countdownDisplay.textContent = '🚀'
