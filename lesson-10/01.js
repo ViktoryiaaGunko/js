@@ -29,10 +29,11 @@ const model = {
   },
   // в model функция для удаления
   deleteMovie(MovieId){
-    this.movies.filter((movie)=>{
+    this.movies=this.movies.filter((movie)=>{
       if(MovieId !== movie.id){
-        return movie
+        return true
       }
+      return false
     })
     view.renderMovies(this.movies)
   }
