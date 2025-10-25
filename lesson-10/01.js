@@ -60,6 +60,8 @@ const view = {
 
     list.addEventListener('click', function(event){
       if(event.target.classList.contains('delete-button')){
+        //любой атрибут id из HTML-элемента (event.target.parentElement.id),
+        // он всегда возвращает его как строку (тип string)
         const mId = event.target.parentElement.id
         controller.deleteMovie(mId)
       }
@@ -103,8 +105,10 @@ const controller = {
       view.displayMessage('Заполните все поля!', true)
     }
   },
-  deleteMovie(movieId){
-    model.deleteMovie(movieId)
+  deleteMovie(movieIdString){
+    // Преобразуем СТРОКУ обратно в ЧИСЛО
+    const numericMovieId = parseFloat(movieIdString)
+    model.deleteMovie(numericMovieId)
     view.displayMessage('Фильм успешно удалён!')
   }
 }
